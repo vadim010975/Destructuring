@@ -1,11 +1,11 @@
 function getSpecialAttacks({ special }) {
-  special.forEach((element) => {
-    if (!element.description) {
-      const el = element; // что бы линт не ругался
-      el.description = 'Описание недоступно';
+  const copySpecial = [...special];
+  for (let i = 0; i < copySpecial.length; i += 1) {
+    if (!copySpecial[i].description) {
+      copySpecial[i].description = 'Описание недоступно';
     }
-  });
-  return special;
+  }
+  return copySpecial;
 }
 
 module.exports = {
